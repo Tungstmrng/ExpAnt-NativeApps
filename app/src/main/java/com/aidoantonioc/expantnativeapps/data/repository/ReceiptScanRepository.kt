@@ -28,7 +28,7 @@ class ReceiptScanRepositoryImpl(
         return try {
             file = imagePreparer.prepare(imageUri)
             val part = MultipartBody.Part.createFormData(
-                name = "image", // must match the field name your Node.js backend expects
+                name = "receipt", // must match upload.single('receipt') in server.js
                 filename = file.name,
                 body = file.asRequestBody("image/jpeg".toMediaType())
             )
